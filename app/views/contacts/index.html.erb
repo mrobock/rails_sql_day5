@@ -1,0 +1,59 @@
+<h1>Welcome to the address book</h1>
+
+<p>Please enter your information below to begin!</p>
+<form action='contacts/add' method='post'>
+  <input type="text" name="given_name" placeholder="First Name"/>
+  <input type="text" name="family_name" placeholder="Last Name"/>
+  <input type="text" name="address" placeholder="Address" />
+  <input type="email" name="email" placeholder="Email Address" />
+  <input type="submit" value="Submit" />
+</form>
+
+<%= flash[:alert] %>
+
+<h2>Update Contact Field</h2>
+<form action='contacts/update' method='post'>
+  <p>Please enter contact's Last Name in the below field</p>
+  <input type="text" name="update_1" placeholder="Search (last name)" required/>
+  <br /><br />
+  <input type="text" name="given_name_update" placeholder="First Name" />
+  <input type="text" name="family_name_update" placeholder="Last Name" />
+  <input type="text" name="address_update" placeholder="Address" />
+  <input type="email" name="email_update" placeholder="Email Address" />
+  <input type="submit" value="Update" />
+</form>
+
+<h2>Destroy Contact</h2>
+<form action='contacts/destroy' method='post'>
+  <p>Please enter contact's Last Name in the below field</p>
+  <input type="text" name="destroy_1" placeholder="Search (last name)" required/>
+  <input type="submit" value="Destroy!" />
+</form>
+
+<h2>Sort Contacts</h2>
+<form action='contacts/sort' method='get'>
+  <p>Click the button below to sort! WARNING: Sorting can not be undone</p>
+  <input type="submit" value="Sort" id="sort"/>
+</form>
+
+
+<h2>Contacts</h2>
+<table class="index_table">
+  <thead>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+  </thead>
+<% if !@contacts.nil? %>
+<% @contacts.each do |contact| %>
+  <tr>
+    <td><%= contact.id %></td>
+    <td><%= contact.given_name %></td>
+    <td><%= contact.family_name %></td>
+    <td><%= contact.email %></td>
+  </tr>
+  <% end %>
+  <% end %>
+
+</table>

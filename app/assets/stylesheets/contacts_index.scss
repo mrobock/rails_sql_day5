@@ -1,0 +1,16 @@
+td, .index_table, th {
+  border: 1px solid black;
+  padding: 5px;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: center;
+}
+
+#sort {
+  width: 250px;
+  height: 75px;
+  font-size: 48px;
+  font-style: bold;
+}
